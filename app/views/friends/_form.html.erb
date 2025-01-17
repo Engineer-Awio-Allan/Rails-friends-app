@@ -1,0 +1,70 @@
+<%= form_with(model: friend, local: true, html: { class: "needs-validation", novalidate: true }) do |form| %>
+  <% if friend.errors.any? %>
+    <div class="alert alert-danger shadow-sm rounded">
+      <h4 class="alert-heading"><%= pluralize(friend.errors.count, "error") %> prevented this friend from being saved:</h4>
+      <ul class="mb-0">
+        <% friend.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="card shadow-sm mt-4">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">Friend Information</h4>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <!-- First Name -->
+        <div class="col-md-6 mb-3">
+          <%= form.label :First_name, class: "form-label fw-bold" %>
+          <%= form.text_field :First_name, class: "form-control form-control-lg", placeholder: "Enter first name" %>
+        </div>
+
+        <!-- Last Name -->
+        <div class="col-md-6 mb-3">
+          <%= form.label :Last_name, class: "form-label fw-bold" %>
+          <%= form.text_field :Last_name, class: "form-control form-control-lg", placeholder: "Enter last name" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Email -->
+        <div class="col-md-6 mb-3">
+          <%= form.label :Email, class: "form-label fw-bold" %>
+          <%= form.email_field :Email, class: "form-control form-control-lg", placeholder: "Enter email address" %>
+        </div>
+
+        <!-- Phone -->
+        <div class="col-md-6 mb-3">
+          <%= form.label :Phone, class: "form-label fw-bold" %>
+          <%= form.telephone_field :Phone, class: "form-control form-control-lg", placeholder: "Enter phone number" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Twitter -->
+        <div class="col-md-12 mb-3">
+          <%= form.label :Twitter, class: "form-label fw-bold" %>
+          <%= form.text_field :Twitter, class: "form-control form-control-lg", placeholder: "Enter Twitter handle" %>
+        </div>
+      </div>
+
+       <div class="row">
+        <!-- Twitter -->
+        <div class="col-md-12 mb-3">
+          
+          <%= form.number_field :user_id,id: :friends_user_id, class: "form-control form-control-lg", value: current_user.id, type: :hidden %>
+        </div>
+      </div>
+      <% current_user.id %>
+     
+    </div>
+
+    
+    <div class="card-footer bg-light text-end">
+      <%= form.submit "Save Friend", class: "btn btn-success btn-lg" %>
+    </div>
+  </div>
+<% end %>

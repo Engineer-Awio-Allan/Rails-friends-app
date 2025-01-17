@@ -1,0 +1,14 @@
+<% content_for :title, "Editing friend" %>
+<div class="card-header ">
+    <h2>Editing Friend</h2>
+  </div>
+<div class="card mt-4 shadow-sm bg-green">
+  
+  <div class="card-body">
+    <%= render "form", friend: @friend %>
+    <div class="d-flex gap-2 mt-3">
+      <%= link_to "Show this friend", @friend, class: "btn btn-primary" %>
+      <%= link_to "Back to friends", friends_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+</div>

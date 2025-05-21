@@ -8,6 +8,10 @@ gem "propshaft"
 gem 'pg', '~> 1.5', '>= 1.5.9'
 gem 'rails_12factor'
 ruby '3.4.1'
+gem 'net-smtp'
+gem 'net-pop'
+gem 'net-imap'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
